@@ -9,8 +9,7 @@ namespace Movies_List.Models
         [Key]
         [Required]
         public int MovieId { get; set; }
-        [Required]
-        public string Category { get; set; }
+       
         [Required]
         public string Title { get; set; }
         [Required]
@@ -25,5 +24,10 @@ namespace Movies_List.Models
         public string LentTo { get; set; }
         [MaxLength(25)]
         public string Notes { get; set; }
+
+       
+        public int CategoryId { get; set; }
+
+        public Category Category { get; set; }
     }
 }
