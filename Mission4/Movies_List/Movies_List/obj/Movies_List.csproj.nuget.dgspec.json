@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/dallanhernandez/Documents/GitHub/Mission4/Movies_List/Movies_List/Movies_List.csproj": {}
+    "/Users/dallanhernandez/Documents/GitHub/IS413MovieList/Mission4/Movies_List/Movies_List/Movies_List.csproj": {}
   },
   "projects": {
-    "/Users/dallanhernandez/Documents/GitHub/Mission4/Movies_List/Movies_List/Movies_List.csproj": {
+    "/Users/dallanhernandez/Documents/GitHub/IS413MovieList/Mission4/Movies_List/Movies_List/Movies_List.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/dallanhernandez/Documents/GitHub/Mission4/Movies_List/Movies_List/Movies_List.csproj",
+        "projectUniqueName": "/Users/dallanhernandez/Documents/GitHub/IS413MovieList/Mission4/Movies_List/Movies_List/Movies_List.csproj",
         "projectName": "Movies_List",
-        "projectPath": "/Users/dallanhernandez/Documents/GitHub/Mission4/Movies_List/Movies_List/Movies_List.csproj",
+        "projectPath": "/Users/dallanhernandez/Documents/GitHub/IS413MovieList/Mission4/Movies_List/Movies_List/Movies_List.csproj",
         "packagesPath": "/Users/dallanhernandez/.nuget/packages/",
-        "outputPath": "/Users/dallanhernandez/Documents/GitHub/Mission4/Movies_List/Movies_List/obj/",
+        "outputPath": "/Users/dallanhernandez/Documents/GitHub/IS413MovieList/Mission4/Movies_List/Movies_List/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/dallanhernandez/.nuget/NuGet/NuGet.Config"
+          "/Users/dallanhernandez/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"

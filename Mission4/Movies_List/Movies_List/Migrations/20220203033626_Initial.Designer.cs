@@ -8,7 +8,7 @@ using Movies_List.Models;
 namespace Movies_List.Migrations
 {
     [DbContext(typeof(MovieFormContext))]
-    [Migration("20220125230257_Initial")]
+    [Migration("20220203033626_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -17,15 +17,70 @@ namespace Movies_List.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.22");
 
+            modelBuilder.Entity("Movies_List.Models.Category", b =>
+                {
+                    b.Property<int>("CategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CategoryName")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("CategoryId");
+
+                    b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryId = 1,
+                            CategoryName = "Action/Adventure"
+                        },
+                        new
+                        {
+                            CategoryId = 2,
+                            CategoryName = "Comedy"
+                        },
+                        new
+                        {
+                            CategoryId = 3,
+                            CategoryName = "Drama"
+                        },
+                        new
+                        {
+                            CategoryId = 4,
+                            CategoryName = "Family"
+                        },
+                        new
+                        {
+                            CategoryId = 5,
+                            CategoryName = "Horror/Suspense"
+                        },
+                        new
+                        {
+                            CategoryId = 6,
+                            CategoryName = "Miscellaneous"
+                        },
+                        new
+                        {
+                            CategoryId = 7,
+                            CategoryName = "Television"
+                        },
+                        new
+                        {
+                            CategoryId = 8,
+                            CategoryName = "VHS"
+                        });
+                });
+
             modelBuilder.Entity("Movies_List.Models.NewMovieForm", b =>
                 {
                     b.Property<int>("MovieId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Category")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Director")
                         .IsRequired()
@@ -55,13 +110,15 @@ namespace Movies_List.Migrations
 
                     b.HasKey("MovieId");
 
+                    b.HasIndex("CategoryId");
+
                     b.ToTable("Response");
 
                     b.HasData(
                         new
                         {
                             MovieId = 1,
-                            Category = "Action",
+                            CategoryId = 1,
                             Director = "Anthony Russo",
                             Edited = false,
                             LentTo = "",
@@ -73,7 +130,7 @@ namespace Movies_List.Migrations
                         new
                         {
                             MovieId = 2,
-                            Category = "Action",
+                            CategoryId = 1,
                             Director = "Jon Watts",
                             Edited = false,
                             LentTo = "Jake Pingree",
@@ -85,7 +142,7 @@ namespace Movies_List.Migrations
                         new
                         {
                             MovieId = 3,
-                            Category = "Comedy",
+                            CategoryId = 2,
                             Director = "Jaume Collet-Serra",
                             Edited = true,
                             LentTo = "",
@@ -94,6 +151,15 @@ namespace Movies_List.Migrations
                             Title = "Jungle Cruise",
                             Year = "2021"
                         });
+                });
+
+            modelBuilder.Entity("Movies_List.Models.NewMovieForm", b =>
+                {
+                    b.HasOne("Movies_List.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

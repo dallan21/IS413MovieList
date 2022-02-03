@@ -11,15 +11,32 @@ namespace Movies_List.Models
             // Leave Blank for now
        }
         public DbSet<NewMovieForm> Response { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder mb)
         {
+            mb.Entity<Category>().HasData(
+
+                new Category { CategoryId=1 , CategoryName= "Action/Adventure"},
+                new Category { CategoryId =2 , CategoryName = "Comedy" },
+                new Category { CategoryId =3 , CategoryName = "Drama" },
+                new Category { CategoryId =4, CategoryName = "Family" },
+                new Category { CategoryId =5 , CategoryName = "Horror/Suspense" },
+                new Category { CategoryId =6 , CategoryName = "Miscellaneous" },
+                new Category { CategoryId =7, CategoryName = "Television" },
+                new Category { CategoryId =8, CategoryName = "VHS" }
+                );
+
+
+
+
+
             mb.Entity<NewMovieForm>().HasData(
 
                 new NewMovieForm
                 {
                     MovieId = 1,
-                    Category = "Action",
+                    CategoryId = 1,
                     Title = "Avengers End Game",
                     Year = "2019",
                     Director = "Anthony Russo",
@@ -31,7 +48,7 @@ namespace Movies_List.Models
                 new NewMovieForm
                 {
                     MovieId = 2,
-                    Category = "Action",
+                    CategoryId = 1,
                     Title = "Spider-Man No Way Home",
                     Year = "2021",
                     Director = "Jon Watts",
@@ -43,7 +60,7 @@ namespace Movies_List.Models
                 new NewMovieForm
                 {
                     MovieId = 3,
-                    Category = "Comedy",
+                    CategoryId = 2,
                     Title = "Jungle Cruise",
                     Year = "2021",
                     Director = "Jaume Collet-Serra",
@@ -53,6 +70,11 @@ namespace Movies_List.Models
                     Notes = ""
                 }
                 );
+        }
+
+        internal dynamic ToList()
+        {
+            throw new NotImplementedException();
         }
     }
 }
